@@ -1,0 +1,1 @@
+console.log("Running shorten url first time!");
