@@ -11,7 +11,8 @@ export class ShortenLink extends React.Component {
         url: ''
     };
     handleSubmit = e => {
-            this.props.shortenUrl(this.state.url);
+        e.preventDefault();
+        this.props.shortenUrl(this.state.url);
 			this.setState({ url: '' })
     };
 
