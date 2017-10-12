@@ -7,13 +7,14 @@ export class List extends React.Component {
 		return (
 			<div>
 				<h2> Previously shortenned by you </h2>
-				<a onClick={() => this.clearHistory() }> Clear history </a>
-				 <table className="table">
+				 <table className="table table-striped">
 					<thead>
 						<tr>
 							<th>Link</th>
 							<th>Visit</th>
 							<th>Last Visit</th>
+							<th>Visit Url</th>
+
 						</tr>
 					</thead>
 					<tbody>
@@ -22,10 +23,18 @@ export class List extends React.Component {
 								<tr key={i}>
 									<td>
 										{link.shortcode}
+										<p style={{color: 'gray'}}>
+											url: {link.url}
+										</p>
 									</td>
 									<td>
+                                        {link.redirectCount}
 									</td>
 									<td>
+                                        {link.lastSeenDate || "NONE"}
+									</td>
+									<td>
+										<a href={`http://impraise-shorty.herokuapp.com/${link.shortcode}`} onClick={this.props.onUpdateLink.bind(null, link)} target="_blank">Visit</a>{}
 									</td>
 								</tr>
 							);
@@ -38,5 +47,6 @@ export class List extends React.Component {
 }
 
 List.propTypes = {
-	links: PropTypes.array
+	links: PropTypes.array,
+	onUpdateLink: PropTypes.func
 };

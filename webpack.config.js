@@ -21,8 +21,8 @@ var config = {
 					presets: ["react", "es2015", "stage-2"]
 				}
 			}
-		]
+			]
 	}
-}
+};
 
 module.exports = config;
