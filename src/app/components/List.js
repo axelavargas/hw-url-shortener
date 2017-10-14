@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types'; // ES6
+import "../styles/components/List.less"
 
 export class List extends React.Component {
 
@@ -23,7 +24,7 @@ export class List extends React.Component {
 								<tr key={i}>
 									<td>
 										{link.shortcode}
-										<p style={{color: 'gray'}}>
+										<p className="url">
 											url: {link.url}
 										</p>
 									</td>

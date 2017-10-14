@@ -1,12 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types'
+import "../styles/components/shortenLink.less"
 
 export class ShortenLink extends React.Component {
-
-	static propTypes = {
-        shortenUrl: PropTypes.func.isRequired,
-    };
-
     state = {
         url: ''
     };
@@ -23,7 +19,7 @@ export class ShortenLink extends React.Component {
 	render() {
 
         return (
-			<div style={{marginBottom: '8%'}}>
+			<div>
 				<form name="shortenUrl" onSubmit={this.handleSubmit} className="form-inline">
 					<div className="form-group">
 						<input type="text"
@@ -32,7 +28,7 @@ export class ShortenLink extends React.Component {
 							   onChange={this.handleChange}
 							   value={this.state.url}
 						/>
-						<button style={{marginLeft: '20px', backgroundColor: '#EB4A42', color:'#FFFFFF'}} className="btn btn-lg" type="submit">
+						<button className="btn btn-lg disabled" type="submit">
 							Shorten url
 						</button>
 					</div>
@@ -41,3 +37,7 @@ export class ShortenLink extends React.Component {
 			)
 	}
 }
+
+ShortenLink.propTypes = {
+    shortenUrl: PropTypes.func.isRequired
+};

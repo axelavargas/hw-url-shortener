@@ -7,6 +7,7 @@ import { submitUrl, getShortCodeStats } from "../actions/shortenedLinkActions";
 
 import { ShortenLink } from "../components/ShortenLink";
 import { List } from "../components/List";
+import app from "../styles/containers/App.less"
 
 
 class App extends React.Component {
@@ -14,11 +15,11 @@ class App extends React.Component {
 	render () {
 		
 		return (
-			<div style={{color: '#555555'}}>
+			<div style={app}>
 			    <div className="container">
 	                <div className="row">
 	                    <div className="col-xs-10 col-xs-offset-1">
-							<h1 style={{color: '#EB4A42', textDecoration:'underline'}}>Shooooort</h1>
+							<h1>Shooooort</h1>
 							<p> This link shortner with a long name </p>
 						</div>
 					</div>

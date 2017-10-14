@@ -1,4 +1,6 @@
 var path = require("path");
+var combineLoaders = require('webpack-combine-loaders');
+
 
 var DIST_DIR = path.resolve(__dirname, "dist");
 var SRC_DIR = path.resolve(__dirname, "src");
@@ -20,7 +22,20 @@ var config = {
 				query: {
 					presets: ["react", "es2015", "stage-2"]
 				}
-			}
+			}, {
+                test: /\.less$/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader"
+                }, {
+                    loader: "less-loader", options: {
+                        paths: [
+                            path.resolve(SRC_DIR, "node_modules")
+                        ]
+                    }
+                }]
+                }
 			]
 	}
 };
