@@ -1,5 +1,14 @@
 //Reducer
-const shortenedLinkReducer = (state = [], action) => {
+
+const getInitialState = () => {
+    var state = JSON.parse(localStorage.getItem('Links'));
+    if(state === '' || state === null) {
+        state = [];
+    }
+    return state;
+}
+
+const shortenedLinkReducer = (state = getInitialState(), action) => {
 	//Always use unique actions
 	switch (action.type) {
         case "SHORTEN_URL_FULFILLED":
@@ -16,6 +25,7 @@ const shortenedLinkReducer = (state = [], action) => {
 			}
             break;
     }
+    localStorage.setItem('Links', JSON.stringify(state));
 	return state;
 };
 
