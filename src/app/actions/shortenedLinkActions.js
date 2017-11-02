@@ -22,6 +22,7 @@ export function shortenUrl(url) {
 }
 
 export function getShortCodeStats(data) {
+    console.log("calling stats");
     return {
         type: "GET_SHORTCODE_STATS",
         payload: new Promise((resolve, reject) => {

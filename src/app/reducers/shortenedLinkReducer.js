@@ -6,7 +6,7 @@ const getInitialState = () => {
         state = [];
     }
     return state;
-}
+};
 
 const shortenedLinkReducer = (state = getInitialState(), action) => {
 	//Always use unique actions

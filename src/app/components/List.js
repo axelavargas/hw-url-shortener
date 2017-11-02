@@ -4,6 +4,18 @@ import "../styles/components/List.less"
 
 export class List extends React.Component {
 
+	onCopyLink (link) {
+		const BASE_PATH = 'http://impraise-shorty.herokuapp.com/';
+        let shortcode = link.shortcode;
+		let input = document.createElement('input');
+        document.body.appendChild(input);
+        input.value = BASE_PATH+shortcode;
+		input.select();
+		document.execCommand('copy');
+		input.blur();
+		input.remove();
+	}
+
 	render() {
 		return (
 			<div>
@@ -35,7 +47,7 @@ export class List extends React.Component {
                                         {link.lastSeenDate || "NONE"}
 									</td>
 									<td>
-										<a href={`http://impraise-shorty.herokuapp.com/${link.shortcode}`} onClick={this.props.onUpdateLink.bind(null, link)} target="_blank">Visit</a>{}
+										<button onClick={this.onCopyLink.bind(null, link)}>Copy</button>{}
 									</td>
 								</tr>
 							);
@@ -48,6 +60,5 @@ export class List extends React.Component {
 }
 
 List.propTypes = {
-	links: PropTypes.array,
-	onUpdateLink: PropTypes.func
+	links: PropTypes.array
 };
